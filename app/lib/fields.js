@@ -48,5 +48,5 @@ export default {
   'x-edge-result-type': 'cache_result_type',
   'x-edge-response-result-type': 'cache_response_result_type',
   'x-edge-detailed-result-type': 'cache_detailed_result_type',
-  'x-edge-request-id': 'cf_request_id'
+  'x-edge-request-id': 'smplog_trace'
 }

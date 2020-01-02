@@ -25,7 +25,7 @@ DOCKER_LATEST := $(shell if [[ "$(VERSION_DIRTY)" -gt "0" ]] || [[ "$(GIT_DIRTY)
 LOCAL_COMPOSE := $(shell [ -f "docker-compose.local.yml" ] && echo "-f docker-compose.local.yml")
 COMPOSE_FILES := $(shell echo "-f docker-compose.yml -f docker-compose.test.yml $(LOCAL_COMPOSE)")
 
-DOCKER_BUILD_ARGS := $(shell echo "--build-arg LR_NPM_TOKEN=${LR_NPM_TOKEN} --target=production")
+DOCKER_BUILD_ARGS := $(shell echo "--target=production")
 
 info:
 	@echo "git branch: 			$(GIT_BRANCH)"
