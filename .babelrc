@@ -1,0 +1,11 @@
+{
+  "presets": [["@babel/preset-env",{"targets":{"node":"current"},"modules": false}]],
+  "env": {
+    "test": {
+      "plugins": [["@babel/plugin-transform-modules-commonjs", {"spec": true}]]
+    },
+    "production": {
+      "ignore": [ "**/__tests__" ]
+    }
+  }
+}

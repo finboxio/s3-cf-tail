@@ -1,0 +1,44 @@
+{
+  "name": "s3-cf-tail",
+  "version": "0.0.0",
+  "description": "Print CloudFront logs from an S3 bucket to the console",
+  "main": "index.js",
+  "path": "app",
+  "type": "module",
+  "author": "finbox",
+  "license": "MIT",
+  "homepage": "https://github.com/finboxio/s3-cf-tail#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finboxio/s3-cf-tail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/finboxio/s3-cf-tail/issues"
+  },
+  "scripts": {
+    "test": "echo TODO: tests",
+    "lint": "echo TODO: linting",
+    "build": "babel app -d build --copy-files",
+    "preversion": "npm run lint && npm run test",
+    "version": "git changelog -t $npm_package_version && git add History.md",
+    "postversion": "git push --follow-tags --no-verify && make docker.push",
+    "tail": "node app/index.js",
+    "dc:tail": "dcx run --build --rm tail"
+  },
+  "dependencies": {
+    "aws-sdk": "2.596.0",
+    "csv-parse": "4.8.3",
+    "envvar": "2.0.0",
+    "kev": "1.3.2",
+    "mjsdev": "0.0.32",
+    "moment": "2.24.0",
+    "ms": "2.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.7.7",
+    "@babel/plugin-transform-modules-commonjs": "7.7.5",
+    "@babel/preset-env": "7.7.7",
+    "babel-jest": "24.9.0",
+    "jest": "24.9.0"
+  }
+}

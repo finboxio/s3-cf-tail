@@ -1,0 +1,27 @@
+version: "3.7"
+
+networks:
+  tail-net:
+    driver: bridge
+
+services:
+  tail:
+    build:
+      context: .
+      target: dev
+      args:
+        - NPM_MAX_SOCKETS
+    networks:
+      - tail-net
+    volumes:
+      - ./app:/usr/src/app
+    command: tail
+    environment:
+      LOOKBACK: '7d'
+      S3_BUCKET: ''
+      S3_PREFIX: ''
+      CF_DISTRIBUTION: ''
+      KEV_URL: ''
+      KEV_PREFIX: ''
+      AWS_ACCESS_KEY_ID: ''
+      AWS_SECRET_ACCESS_KEY: ''
