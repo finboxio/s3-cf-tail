@@ -46,7 +46,11 @@ const run = async () => {
         const sanitized = { timestamp, cf_log_file: next.Key }
         for (const field in fields) {
           const rename = fields[field]
-          sanitized[rename] = record[field]
+          if (typeof rename === 'string') {
+            sanitized[rename] = record[field]
+          } else {
+            sanitized[rename.name] = rename.transform(record[field])
+          }
         }
         console.log(JSON.stringify(sanitized))
       })

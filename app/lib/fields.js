@@ -38,13 +38,19 @@
 export default {
   'c-ip': 'ip',
   'cs-method': 'method',
-  'sc-status': 'status',
+  'sc-status': {
+    name: 'status_code',
+    value: (v) => v && parseInt(v)
+  },
   'cs(User-Agent)': 'user_agent',
   'cs(Referer)': 'referrer',
   'x-host-header': 'host',
   'cs-uri-stem': 'path',
   'x-forwarded-for': 'forwarded_for',
-  'time-to-first-byte': 'ttfb',
+  'time-to-first-byte': {
+    name: 'ttfb_ms',
+    value: (v) => v && (parseFloat(+v) * 1000)
+  },
   'x-edge-result-type': 'cache_result_type',
   'x-edge-response-result-type': 'cache_response_result_type',
   'x-edge-detailed-result-type': 'cache_detailed_result_type',
