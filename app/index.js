@@ -49,7 +49,7 @@ const run = async () => {
           if (typeof rename === 'string') {
             sanitized[rename] = record[field]
           } else {
-            sanitized[rename.name] = rename.transform(record[field])
+            sanitized[rename.name] = rename.value(record[field])
           }
         }
         console.log(JSON.stringify(sanitized))
