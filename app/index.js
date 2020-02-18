@@ -3,16 +3,16 @@ import ms from 'ms'
 import Kev from 'kev'
 import env from 'envvar'
 
-import fields from 'lib/fields'
-import S3 from 'lib/s3'
+import fields from './lib/fields.js'
+import S3 from './lib/s3.js'
 
-const LOOKBACK = env.string('LOOKBACK', '7d')
+const LOOKBACK = env.string('LOOKBACK', process.argv[2] || '7d')
 
 const S3_BUCKET = env.string('S3_BUCKET')
 const S3_PREFIX = env.string('S3_PREFIX')
 const CF_DISTRIBUTION = env.string('CF_DISTRIBUTION')
 
-const KEV_URL = env.string('KEV_URL')
+const KEV_URL = env.string('KEV_URL', 'memory://s3-cf-tail')
 const KEV_PREFIX = env.string('KEV_PREFIX', [ 's3-cf-tail', S3_BUCKET, S3_PREFIX, CF_DISTRIBUTION ].join(':'))
 
 const AWS_ACCESS_KEY_ID = env.string('AWS_ACCESS_KEY_ID')
