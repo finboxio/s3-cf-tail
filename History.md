@@ -1,4 +1,10 @@
 
+0.0.5 / 2020-02-19
+==================
+
+  * Update dependencies
+  * Allow run without kev url
+
 0.0.4 / 2020-02-14
 ==================
 
