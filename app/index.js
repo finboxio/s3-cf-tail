@@ -12,11 +12,11 @@ const S3_BUCKET = env.string('S3_BUCKET')
 const S3_PREFIX = env.string('S3_PREFIX')
 const CF_DISTRIBUTION = env.string('CF_DISTRIBUTION')
 
-const KEV_URL = env.string('KEV_URL', 'memory://s3-cf-tail')
-const KEV_PREFIX = env.string('KEV_PREFIX', [ 's3-cf-tail', S3_BUCKET, S3_PREFIX, CF_DISTRIBUTION ].join(':'))
-
 const AWS_ACCESS_KEY_ID = env.string('AWS_ACCESS_KEY_ID')
 const AWS_SECRET_ACCESS_KEY = env.string('AWS_SECRET_ACCESS_KEY')
+
+const KEV_URL = env.string('KEV_URL', 'memory://s3-cf-tail')
+const KEV_PREFIX = env.string('KEV_PREFIX', [ 's3-cf-tail', S3_BUCKET, S3_PREFIX, CF_DISTRIBUTION ].join(':'))
 
 const s3 = new S3({ accessKeyId: AWS_ACCESS_KEY_ID, secretAccessKey: AWS_SECRET_ACCESS_KEY })
 const kev = new Kev({ url: KEV_URL, prefix: KEV_PREFIX })

@@ -1,4 +1,4 @@
-ARG NODE_VERSION=12.4
+ARG NODE_VERSION=13.5
 
 ###
 # @base
